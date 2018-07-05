@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+body, html {
+    height: 100%;
+}
 
 body {
     text-align: center;
@@ -8,25 +11,45 @@ body {
     background-color: #3C3C3C;
     color: #D3D0CB;
     font-size: 30px;
-    
+    margin: 0;
+   
+    /*background-image: url("images/black_texture.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
 }
-
+header {
+    position: relative;
+    z-index: 1000;
+}
 h1 {
-    margin-top: 10%;
+    margin-top: 3%;
     margin-bottom: 0;
     background-color: mistyrose;
     color: #706F6F;
     padding: 10px;
+    border-top: 15px solid #706F6F;
     border-bottom: 15px solid #706F6F;
+    
 }
 
 h2 {
     margin-top: 3%;
     margin-bottom: 5%;
     font-size: 30px;
+    font-family: 'Gaegu', cursive;
+
+}
+.logo {
+    display: inline;
+    position: absolute;
+    max-width: 50%;
+    margin-left: 22vw;
+    margin-top: -10vh;
+    opacity: 0.40; 
 }
 .icon {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Gaegu', cursive;
     padding: 4px;
 }
 
@@ -38,12 +61,11 @@ button {
     font-weight: 600;
     transition: ease-in 1s;
     border: 1px solid #706F6F;
+    margin-bottom: 10px;
 }
-p{
-    padding:5px;
-}
+
 .player1 {
-    display: inline-flex;
+    display: inline;
     padding: 0 7px 0 7px;
     margin: 3px;
 }
@@ -56,26 +78,49 @@ p{
 .draw {
     padding: 0 5px 0 5px;
 }
+span {
+    margin: 0 5px 0 10px;
+    font-size: 40px;
+}
+.mo {
+    max-width: 35%;
+    margin-top: 10px;
+    opacity: 0.60;
+}
 
+.motop {
+    max-width: 20%;
+    margin-top: 5vh;
+    vertical-align: bottom;
+    opacity: 0.60;
+}
 
 .scoreboard {
+    align-items: center;
     background-color: black;
     margin: 30px;
-    margin-left: 15vw;
-    max-width: 70%;
+    margin-left: 22vw;
+    margin-top: 0;
+    max-width: 65%;
     border-radius: 7px;
     opacity: 0.5;
     padding: 10px;
     border-bottom: 15px solid #706F6F;
-    position: relative;
+    font-family: 'Gaegu', cursive;
+    position:relative;
+    -webkit-box-shadow:0 1px 4px black, 0 0 40px rgba(0, 0, 0, 0.4) inset;
+       -moz-box-shadow:0 1px 4px black, 0 0 40px rgba(0, 0, 0, 0.4) inset;
+            box-shadow:0 1px 4px black, 0 0 40px rgba(0, 0, 0, 0.4) inset;
 }
+
 
 table {
     text-align: center;
+    vertical-align: center;
     padding: 25px;
     border-collapse: collapse;
-    margin: auto;
-    font-family: 'Open Sans', sans-serif;
+    margin-left: 25vw;
+    font-family: 'Gaegu', cursive;
     position: relative;
 }
 
@@ -85,10 +130,17 @@ td {
     width: 120px;
     text-align: center;
     vertical-align: middle;
-    font-size: 60px;
+    font-size: 70px;
     cursor: pointer;
     border-radius: 3px;
-    transition: ease-in 1s;
+    font-family: 'Gaegu', cursive;
+    -webkit-box-shadow:0 1px 4px black, 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px black, 0 0 40px rgba(0, 0, 0, 0.4) inset;
+         box-shadow:0 1px 4px black, 0 0 40px rgba(0, 0, 0, 0.4) inset;
+
+}
+.cell {
+    transition: all ease-in 1s;
 }
 
 table tr:first-child td {
@@ -106,6 +158,9 @@ table tr td:first-child {
 table tr td:last-child {
     border-right: 0;
 }
+.whosturn {
+    padding: 15px;
+}
 
 .winner-banner {
     font-family: 'Indie Flower', cursive;
@@ -113,26 +168,39 @@ table tr td:last-child {
     font-size: 50px;
     font-weight: 700;
     background-color:  #D3D0CB;
-    width: 50%;
-    height: 50%;
+    width: 45%;
+    height: 45%;
     position: fixed;
     border-radius: 5px;
-    margin-left: 25vw;
+    margin-left: 22vw;
+    margin-bottom: 10vh;
     opacity: 0.7;
     z-index: 1000;
-    border: 2px solid black;
+    border: 1.5px solid black;
+    transition: ease-in 1s;
+}
+.alertimage {
+    position: relative;
+    max-width: 20%;
+    margin-top:5px;
 }
 
 .hidden {
     display: none;
-    transition: ease-in 0.5;
 }
 
 .alert {
     color: black;
+    transition: ease-in 0.5;
+    margin: 0;
+}
+
+@media only screen and (max-width: 800px)  {
+    .player1, .player2 {
+        display: block;
+    }
 }
 /*still to do: 
 add sounds
 winner's alert and stop further play
-add transition and @ media to CSS
-fix scoreboard presentation */
+add transition and @ media to CSS */

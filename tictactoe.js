@@ -6,8 +6,9 @@ var player2 = "O";
 var moveCount = 0;
 var player1Selection = [];
 var player2Selection = [];
-var clickedItem = ''
+var clickedItem = '';
 var cells = document.querySelectorAll('.cell');
+var turn = document.querySelector('.whosturn');
 var restartBtn = document.querySelector('.restart');
 var p1wins = document.querySelector('#p1score');
 var p2wins = document.querySelector('#p2score');
@@ -98,12 +99,12 @@ var nextMove = function(event) {
             marker = player1
             event.target.textContent = player1;
             player1Selection.push(event.target.id);
-            //log player 1 turn
+            turn.textContent = "Player one, it's your turn"
         } else {
             marker = player2
             event.target.textContent = player2;
             player2Selection.push(event.target.id);
-            //log player 2 turn
+            turn.textContent ="Player two, it's your turn"
         };
     };
 
