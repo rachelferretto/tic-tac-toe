@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tic-Tac-Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <h1> Tic-Tac-Toe!</h1>
+        <h2> 2 player game</h2>
+    </header>
+    <div>  
+            <div class ='winner-banner'>
+                <p class ='alert'> test</p>
+                <div class="restart"> <button>Play again</button> </div>
+            </div>  
+        <table class='game'>
+            <tr class='row1'>
+                <td class ='cell' id='one'></td>
+                <td class ='cell' id='two'></td>
+                <td class ='cell' id='three'></td>
+            </tr>
+            <tr class='row2'></tr>
+                <td class='cell' id='four'></td>
+                <td class='cell' id='five'></td>
+                <td class='cell' id='six'></td>
+            </tr>
+            <tr class='row3'>
+                <td class='cell' id='seven'></td>
+                <td class='cell' id='eight'></td>
+                <td class='cell' id='nine'></td>
+            </tr>
+        
+        </table>
+      
+
+    </div>
+    <footer>
+        <div class='scoreboard'>
+            <h3> The Scoreboard.</h3>
+            <p class="player1"><span class ='icon'>(X)</span> Player One: <span id ='p1score'> 0</span></p>
+            <p class="player2"><span class ='icon'>(O)</span>Player Two: </span><span id='p2score'> 0</span></p>
+            <p class="draw">Draw: <span id='drawscore'>0</span></p>        
+
+        </div>
+        <div class="restart"> <button>Play again</button> </div>
+    </footer>
+
+    <script src="tictactoe.js"></script>
+</body>
+</html>

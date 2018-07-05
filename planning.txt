@@ -1,0 +1,44 @@
+1. start with blank board
+
+   - 9 divs (br after every 3) with formatted borders, round corners
+   -give each position a number (1 to 9) as classnames
+
+on click, place either x or o in div 
+
+Variables we need
+var currentPlayer = 0;
+var points1 = 0;    // player 1 points
+var points2 = 0;    // player 2 points
+
+
+
+draw gameboard
+player 1 / player 2 legend/ counter
+                        
+    1   2   3           
+    4   5   6           
+    7   8   9           
+
+  
+
+give each position a number (1 to 9)
+iterate through the player turns
+add event handler to tableclick, alternating players after each one, until a winner is found
+Show a mark for each player (X or O)
+
+- keep track of player moves (in a new array)
+    var player1Selections = new Array();
+    var player2Selections = new Array();
+- switch between current player/ use toggle
+- when min 3 have been selected by any user check for win
+- winning position combinations 
+Horizontal: [1, 2, 3] [4, 5, 6] [7, 8, 9]
+Vertical: [1, 4, 7] [2, 5, 8] [3, 6, 9]
+Diagonal: [1, 5, 9] [3, 5, 7]
+
+- store combinations in a new array
+
+- check winner function: var winners = new Array();
+- if winner: update the points and reset the game variables. Redraw the board.
+- reset function
+- check if draw => no winner, add score to Draw number
