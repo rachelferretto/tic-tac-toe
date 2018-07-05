@@ -113,7 +113,6 @@ var nextMove = function(event) {
     };
 };
 
-
 cells.forEach(function(item){ 
     item.addEventListener('click', nextMove);
  });
@@ -127,7 +126,6 @@ restartBtn.addEventListener('click', function(event) {
     winnerBanner.classList.add('hidden')
     });
  });
-
 
 
 
