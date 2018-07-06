@@ -18,21 +18,25 @@ var drawTotal = 0;
 var draw = document.querySelector('#drawscore');
 var winnerAlert = document.querySelector('.alert');
 var winnerBanner = document.querySelector('.winner-banner');
+var winSound;
+
 
 winnerBanner.classList.add('hidden');
 
 var winnerFound = function(winner) {
     console.log(winner + ' wins!');
+    winSound = new Audio("moewinner.mp3")
+    winSound.play();
     if (winner === "X") {
         p1runningTotal = p1runningTotal + 1;
         p1wins.textContent = Number(p1runningTotal);
-        winnerBanner.classList.remove('hidden')
-        winnerAlert.textContent = 'X Wins!'
+        winnerBanner.classList.remove('hidden');
+        winnerAlert.textContent = 'X Wins!';
     } else if (winner === "O") {
         p2runningTotal = p2runningTotal + 1;
         p2wins.textContent = Number(p2runningTotal);
-        winnerBanner.classList.remove('hidden')
-        winnerAlert.textContent = 'O Wins!'
+        winnerBanner.classList.remove('hidden');
+        winnerAlert.textContent = 'O Wins!';
     };
 };
 
@@ -96,14 +100,14 @@ var nextMove = function(event) {
     if (event.target.textContent === '') {
         
         if (moveCount % 2 === 0) {
-            marker = player1
-            event.target.textContent = player1;
-            player1Selection.push(event.target.id);
-            turn.textContent = "Player one, it's your turn"
-        } else {
             marker = player2
             event.target.textContent = player2;
             player2Selection.push(event.target.id);
+            turn.textContent = "Player one, it's your turn"
+        } else {
+            marker = player1
+            event.target.textContent = player1;
+            player1Selection.push(event.target.id);
             turn.textContent ="Player two, it's your turn"
         };
     };
@@ -120,10 +124,16 @@ cells.forEach(function(item){
 
 //reset board
 restartBtn.addEventListener('click', function(event) {
-    moveCount = 0; //clears moveCount
+    if (moveCount % 2 ===0) {
+        moveCount = 1;
+        turn.textContent ="Player two, it's your turn"
+    } else {
+    moveCount = 0;
+    turn.textContent = "Player one, it's your turn"
+    } //clears moveCount
     cells.forEach(function(item){
     item.textContent = ""; //clears board
-    winnerBanner.classList.add('hidden')
+    winnerBanner.classList.add('hidden');
     });
  });
 
