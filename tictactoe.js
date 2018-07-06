@@ -18,14 +18,14 @@ var drawTotal = 0;
 var draw = document.querySelector('#drawscore');
 var winnerAlert = document.querySelector('.alert');
 var winnerBanner = document.querySelector('.winner-banner');
-var winSound;
+var winSound = new Audio("moewinner.mp3")
 
 
 winnerBanner.classList.add('hidden');
 
 var winnerFound = function(winner) {
     console.log(winner + ' wins!');
-    winSound = new Audio("moewinner.mp3")
+    // winSound = new Audio("moewinner.mp3")
     winSound.play();
     if (winner === "X") {
         p1runningTotal = p1runningTotal + 1;
@@ -86,6 +86,10 @@ var checkForWin = function(marker) {
 
     if (won === true) {
         winnerFound(winner);
+        cells.forEach(function(item){ 
+            item.removeEventListener('click', nextMove);
+         });
+
     };
 
     if (moveCount === 9 && won == false) {
@@ -123,7 +127,8 @@ cells.forEach(function(item){
 
 
 //reset board
-restartBtn.addEventListener('click', function(event) {
+restartBtn.addEventListener('click', function(event) {  winSound.pause();
+    winSound.currentTime = 0;
     if (moveCount % 2 ===0) {
         moveCount = 1;
         turn.textContent ="Player two, it's your turn"
@@ -131,6 +136,9 @@ restartBtn.addEventListener('click', function(event) {
     moveCount = 0;
     turn.textContent = "Player one, it's your turn"
     } //clears moveCount
+    cells.forEach(function(item){ 
+        item.addEventListener('click', nextMove);
+     }); //re-adds event listener
     cells.forEach(function(item){
     item.textContent = ""; //clears board
     winnerBanner.classList.add('hidden');
